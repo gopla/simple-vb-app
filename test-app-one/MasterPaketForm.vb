@@ -76,7 +76,7 @@ Public Class Form1
 
     Private Sub StoreData()
         Try
-            sqlstr = "INSERT INTO package (no_resi, package_desc, sender_name, sender_address, receiver_name, receiver_address, weight, price) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p7)"
+            sqlstr = "INSERT INTO package (no_resi, package_desc, sender_name, sender_address, receiver_name, receiver_address, weight, price) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8)"
             Using myCmd As New MySqlCommand
                 With myCmd
                     .CommandText = sqlstr
@@ -190,9 +190,7 @@ Public Class Form1
 
     Private Sub btn_del_Click(sender As Object, e As EventArgs) Handles btn_del.Click
         If no_resi.Text <> "" Then
-            Dim res As MsgBoxResult = Nothing
-
-            res = MsgBox("Hapus data ini?", vbYesNo, "Konfirmasi")
+            Dim res = MsgBox("Hapus data ini?", vbYesNo, "Konfirmasi")
             If res = MsgBoxResult.Yes Then
                 Call DeleteData()
                 Call Index()
@@ -200,9 +198,8 @@ Public Class Form1
                 MsgBox("Data berhasil dihapus.", MsgBoxStyle.Information)
             End If
         Else
-                MsgBox("Pilih data yang ingin dihapus!", MsgBoxStyle.Critical)
+            MsgBox("Pilih data yang ingin dihapus!", MsgBoxStyle.Critical)
         End If
-
     End Sub
 
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles txt_cari.TextChanged

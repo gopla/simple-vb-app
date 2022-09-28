@@ -160,9 +160,7 @@ Public Class MasterUserForm
 
     Private Sub btn_del_Click(sender As Object, e As EventArgs) Handles btn_del.Click
         If email.Text <> "" Then
-            Dim res As MsgBoxResult = Nothing
-
-            res = MsgBox("Hapus data ini?", vbYesNo, "Konfirmasi")
+            Dim res = MsgBox("Hapus data ini?", vbYesNo, "Konfirmasi")
             If res = MsgBoxResult.Yes Then
                 Call DeleteData()
                 Call ShowData()
@@ -172,6 +170,5 @@ Public Class MasterUserForm
         Else
             MsgBox("Pilih data yang ingin dihapus!", MsgBoxStyle.Critical)
         End If
-
     End Sub
 End Class
